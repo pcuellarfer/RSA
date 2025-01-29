@@ -2,11 +2,20 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+/**
+ * Clase principal que ejecuta la generación de claves RSA,
+ * el cifrado de un mensaje con la clave pública y su descifrado con la clave privada.
+ */
 public class Main {
 
+    /**
+     * Metodo principal que genera un par de claves RSA, cifra un mensaje y luego lo descifra.
+     *
+     * @param args Argumentos de línea de comandos (no utilizados en este programa).
+     */
     public static void main(String[] args) {
         try {
-            // Generacion de las claves pública y privada
+            // Generación de las claves pública y privada
             KeyPair parDeClaves = GestorClaves.generarClaves();
             PublicKey clavePublica = parDeClaves.getPublic();
             PrivateKey clavePrivada = parDeClaves.getPrivate();
@@ -24,6 +33,7 @@ public class Main {
             System.out.println("Mensaje descifrado: " + mensajeDescifrado);
 
         } catch (Exception e) {
+            // Captura cualquier error que pueda pasar
             e.printStackTrace();
         }
     }
